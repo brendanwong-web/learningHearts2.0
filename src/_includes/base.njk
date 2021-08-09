@@ -1,0 +1,28 @@
+{% include "partials/htmlhead.njk" %}
+
+<header>
+
+  <img src="static/logo--text.png" alt="" class="nav__logo">
+  <button class="hamburger">
+    <div class="hamburger__line"></div>
+  </button>
+  <nav>
+    {% navlist collections.all | eleventyNavigation, page, 1 %}
+  </nav>
+</header>
+
+<main>
+{% block content %}
+
+  {{ content | safe }}
+
+{% endblock %}
+</main>
+
+<footer>
+  <nav>
+    {% navlist collections.all | eleventyNavigation, page, 2 %}
+  </nav>
+</footer>
+
+{% include "partials/htmlfoot.njk" %}
